@@ -1,0 +1,6 @@
+user_config.h
+build/
+firmware/
+*~
+
+
