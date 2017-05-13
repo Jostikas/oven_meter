@@ -2,11 +2,14 @@ Eduroam ESP8266 meat thermometer.
 ===
 
 This is a web-enabled meat thermometer for people who (like me)
-live on the other end of the hall from the kitchen, and don't
+live on the other end of the dorm from the kitchen, and don't
 have a common (or transparent) wifi network between their dorm
 room and the kitchen.
 
 This repo contains the ESP8266-side code only.
+* Hardware design (Kicad schematics and protoboard layout) is at https://github.com/Jostikas/oven_meter_HW
+* Server code (Firebase Functions) not yet uploaded
+* Android app code not yet uploaded
 
 Building
 ---
