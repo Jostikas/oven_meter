@@ -1,4 +1,5 @@
 Eduroam ESP8266 meat thermometer.
+===
 
 This is a web-enabled meat thermometer for people who (like me)
 live on the other end of the hall from the kitchen, and don't
@@ -14,13 +15,15 @@ To build you need:
 * [libmirom.a](https://github.com/espressif/ESP8266_RTOS_SDK/blob/master/lib/libmirom.a) from [ESP8266-RTOS-SDK](https://github.com/espressif/ESP8266_RTOS_SDK)
 * ... I think that's it for external dependencies
 * You need to edit your wpa2.a file in esp-open-sdk/sdk/lib by replacing "anonymous@espressif.com with your username@example.edu zero-padded to 23 bytes.
-* Rename [`user/user_config_default.h`] to `user/user_config.h`. This is so I don't accidentally submit my password to github...
+* Rename [`user_config_default.h`](./user/user_config_default.h) to `user_config.h`. This is so I don't accidentally submit my password to github...
 
 IMPORTANT NOTE
 ---
 This is completely unsafe. Due to persistency not being available for WPA2-AES-PEAP connections in the current ESP SDK, nor a user-addressable locked memory the username and password have to be stored in plaintext in the code, or passed in externally every time (which defeats the purpose). So anyone who wants and knows, can pick up the ESP, dump its memory and read your institution password from it. 
 
 It's possible to obscure it, but then you'd have to roll your own obscuration (kind of defeats the purpose of posting your obscuration details on GitHub). Also, I guess it would be possible to store the authentication details in RTC RAM and initialize via an app on a SoftAP-connected phone. I don't know whether that's actually any more secure, but at least it wouldn't be visisble in a flash dump and would be cleared on more than a few seconds of power loss.
+
+Then again, once an attacker has physical access, it's almost moot anyway. The best you can hope for is to only give one chance to get things right. Hmm... wonder if RTC_mem survives entering mode(1,6)...
 
 Other stuff
 ---
